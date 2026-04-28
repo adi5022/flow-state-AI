@@ -64,6 +64,29 @@ cp .env.template .env
 
 ## Usage
 
+### Prerequisites: Model Training
+
+**Before running the application, you must train the ML models.** The repository does not include pre-trained models to keep the repository size small and ensure reproducibility.
+
+#### Step 1: Generate Synthetic Cohorts
+```bash
+python generate_cohort.py          # Generate BP cohort (150K rows)
+python generate_egfr_cohort_plm.py  # Generate eGFR cohort (130K rows)
+```
+
+#### Step 2: Train Models
+```bash
+cd models
+python pipeline.py           # Train MAP and PP progression models
+python train_egfr_plm.py     # Train eGFR PLM
+python evaluate_models.py    # Evaluate all models
+```
+
+This will create the following model files in the `models/` directory:
+- `progression_map.pkl` - MAP progression model
+- `progression_pp.pkl` - PP progression model
+- `progression_egfr_plm.pkl` - eGFR PLM model
+
 ### Running the Application
 ```bash
 python main.py
@@ -75,20 +98,6 @@ The application will open with five tabs:
 3. **Metrics**: View eGFR decline and survival curves
 4. **Interventions**: Select intervention type and start year
 5. **Intervention Results**: Compare baseline vs treated trajectories
-
-### Generating Synthetic Cohorts (for model training)
-```bash
-python generate_cohort.py          # Generate BP cohort
-python generate_egfr_cohort_plm.py  # Generate eGFR cohort
-```
-
-### Training Models
-```bash
-cd models
-python pipeline.py           # Train MAP and PP progression models
-python train_egfr_plm.py     # Train eGFR PLM
-python evaluate_models.py    # Evaluate all models
-```
 
 ### Running Test Simulation
 ```bash
