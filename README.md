@@ -2,18 +2,6 @@
 
 A patient-specific cardiovascular digital twin for hypertension progression modeling and intervention simulation. Given 10 clinical measurements, it simulates blood pressure trajectory, kidney function decline, and survival probability year-by-year over 30 years. Every parameter is traceable to a peer-reviewed citation.
 
-## Overview
-
-FlowState AI is a research prototype that demonstrates how machine learning can be combined with evidence-based clinical science to create personalized cardiovascular risk models. The application simulates:
-
-- **Blood pressure progression** year-by-year using MAP (Mean Arterial Pressure) and PP (Pulse Pressure) z-scores
-- **Kidney function decline** using a Partial Linear Model (PLM) that preserves explicit clinical equations
-- **Mortality risk** using a log-additive hazard model with age, BP, eGFR, and smoking components
-- **Intervention effects** (currently ACE Inhibitor) with cited clinical parameters
-- **Comparative trajectories** showing treated vs untreated outcomes
-
-The clinical message: show the divergence between doing nothing and treating early.
-
 ## Key Features
 
 ### Physiological Modeling
@@ -37,6 +25,33 @@ The clinical message: show the divergence between doing nothing and treating ear
 - **Patient registry**: Save, load, and manage patient profiles as JSON
 - **ARIA chatbot**: AI assistant (Gemini or Groq) for interpreting simulation results
 
+## Overview
+
+FlowState AI is a research prototype that demonstrates how machine learning can be combined with evidence-based clinical science to create personalized cardiovascular risk models. The application simulates:
+
+- **Blood pressure progression** year-by-year using MAP (Mean Arterial Pressure) and PP (Pulse Pressure) z-scores
+- **Kidney function decline** using a Partial Linear Model (PLM) that preserves explicit clinical equations
+- **Mortality risk** using a log-additive hazard model with age, BP, eGFR, and smoking components
+- **Intervention effects** (currently ACE Inhibitor) with cited clinical parameters
+- **Comparative trajectories** showing treated vs untreated outcomes
+
+The clinical message: show the divergence between doing nothing and treating early.
+
+## Documentation
+
+For detailed explanations of each subsystem, see the [docs/](docs/) folder:
+
+- **[Internal State Representation](docs/1_Internal_State_Representation.md)** - How SBP/DBP are converted to MAP/PP z-scores
+- **[Mortality Model](docs/2_Mortality_Model.md)** - Log-additive hazard model combining baseline mortality, BP risk, eGFR risk, and smoking
+- **[Blood Pressure Progression Models](docs/3_Blood_Pressure_Progression_Models.md)** - Gradient Boosting MAP model and Ridge PP model
+- **[Synthetic BP Cohort Generation](docs/4_Synthetic_BP_Cohort_Generation.md)** - How training data is generated
+- **[eGFR Progression Model (PLM)](docs/6_eGFR_Progression_Model_PLM.md)** - Two-layer model with explicit clinical equations + GB residuals
+- **[Synthetic eGFR Cohort Generation](docs/7_Synthetic_eGFR_Cohort_Generation_PLM.md)** - eGFR training data generation
+- **[Intervention System](docs/8_Intervention_System.md)** - ACE Inhibitor effects and adverse effect modeling
+- **[Physiological Drift Models](docs/9_Physiological_Drift_Models.md)** - Age-related changes in waist, heart rate, and other parameters
+- **[Model Training Pipeline](docs/10_Model_Training_Pipeline.md)** - How models are trained and evaluated
+- **[CKD Stage Encoding](docs/11_CKD_Stage_Encoding.md)** - How CKD stages are defined and used
+
 ## Installation
 
 ### Prerequisites
@@ -47,8 +62,8 @@ The clinical message: show the divergence between doing nothing and treating ear
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/adi5022/flowstate-ai-v2.git
-cd flowstate-ai-v2
+git clone https://github.com/adi5022/flow-state-AI.git
+cd flow-state-AI
 ```
 
 2. Install dependencies:
