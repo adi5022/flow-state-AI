@@ -1,0 +1,54 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Trained model files (binary, large)
+*.pkl
+models/*.pkl
+
+# Data files (large, synthetic)
+data/
+*.csv
+
+# AI assistant context
+CLAUDE CONTEXT/
+CLAUDE.md
+.claude/
+
+# API keys and secrets
+aria_config.json
+*.env
+
+# Screenshots (can be regenerated)
+SCREENSHOTS/
+
+# Generated evaluation graphs (can be regenerated)
+models/*.png
+models/evaluation/
+
+# Word documents (can be regenerated)
+Documentation/*.docx
+
+# PDF files (copyrighted, can be regenerated)
+Documentation/*.pdf
+REF JOURNALS/*.pdf
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

@@ -1,0 +1,27 @@
+# FlowState AI v.2 - Python Dependencies
+# Python 3.9+ required
+
+# Core data science
+numpy>=1.24.0,<2.0.0
+pandas>=2.0.0,<3.0.0
+scipy>=1.10.0,<2.0.0
+
+# Machine learning
+scikit-learn>=1.3.0,<2.0.0
+joblib>=1.3.0,<2.0.0
+
+# GUI framework
+PyQt6>=6.5.0,<7.0.0
+PyQt6-WebEngine>=6.5.0,<7.0.0
+
+# Visualization
+plotly>=5.17.0,<6.0.0
+matplotlib>=3.7.0,<4.0.0
+seaborn>=0.12.0,<1.0.0
+
+# API requests
+requests>=2.31.0,<3.0.0
+
+# Optional: for secure key storage (recommended)
+keyring>=24.0.0,<25.0.0
+python-dotenv>=1.0.0,<2.0.0
